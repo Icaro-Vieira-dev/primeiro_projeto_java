@@ -29,8 +29,15 @@ public class Main {
 
         //CONVERTENDO CELSIUS PARA F
 
-        //ConvertCtoF convert = new ConvertCtoF(40);
-        //convert.celsiusToF();
+        ConvertCtoF convert = new ConvertCtoF();
+        convert.setCelsius(37);
+        convert.getCelsius();
+
+
+
+        convert.celsiusToF();
+
+
 
 
         // CONVERTENDO REAL PARA EURO
