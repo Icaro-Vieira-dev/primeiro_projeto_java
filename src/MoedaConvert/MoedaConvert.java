@@ -15,7 +15,7 @@ public class MoedaConvert {
 
         // Retorno Int
 
-        double valorEuro = 5.85;
+        double valorEuro = euro;
         double resultado = (double) real * valorEuro;
         int resultadoConvert = (int) resultado;
         System.out.println("Valor total sem contar centavos: " + resultadoConvert);
