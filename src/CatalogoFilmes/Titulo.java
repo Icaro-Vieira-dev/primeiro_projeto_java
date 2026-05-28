@@ -1,16 +1,16 @@
 package CatalogoFilmes;
 
-public class Titulo {
+public abstract class Titulo {
     private String titulo;
     private int anoLancamento;
-    private Boolean incluiNoPlano;
+    private boolean incluiNoPlano;
 
 
     public static void bemVindo() {
         System.out.println("Bem vindo ao Screen Match\n\n");
-    };
+    }
 
-    public Titulo(String nomeFilme, Integer anoDeLancamento, boolean incluiNoPlano){
+    public Titulo(String nomeFilme, int anoDeLancamento, boolean incluiNoPlano){
         this.titulo = nomeFilme;
         this.anoLancamento = anoDeLancamento;
         this.incluiNoPlano = incluiNoPlano;
@@ -28,9 +28,18 @@ public class Titulo {
         this.incluiNoPlano = incluiNoPlano;
     }
 
-    public void exibirTitulo(){
-        System.out.println("Nome do Filme/Serie: " + titulo);
-        System.out.println("Incluido no plano: " + incluiNoPlano);
-
+    public String getTitulo() {
+        return titulo;
     }
+
+    // Aqui eu estou criando um metodo apenas para os filhos dessa classe poder enxergar.
+    // Logicas que os filhos podem precisar usar, como exibir nome, ano lançamento e se inclui ou não no plano
+
+    protected void exibirDadosBase() {
+        System.out.println("Nome: " + titulo);
+        System.out.println("Ano de Lançamento: " + anoLancamento);
+        System.out.println("Incluido no Plano: " + incluiNoPlano);
+    }
+
+    public abstract void exibirTitulo();
 }

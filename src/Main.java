@@ -1,5 +1,10 @@
+import CatalogoFilmes.Filmes;
 import CatalogoFilmes.Serie;
+import CatalogoFilmes.Titulo;
 import ContaBancaria.ContaBancaria;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Main {
@@ -67,12 +72,35 @@ public class Main {
         // recebeu
         conta2.pagamento(100.00, conta1.getTitular(), conta2.getTitular());*/
 
-        Serie theBoys = new Serie("The boys", 2019,true);
-        theBoys.setTotalTemporada(5);
-        theBoys.setTotalEpisodio(8);
-        theBoys.setActive(false);
-        theBoys.setMinutosPorEpisodio(60);
-        theBoys.exibirTitulo();
+
+        // POLIMORFISMO EM PRATICA
+
+        Titulo.bemVindo();
+
+        Titulo serie = new Serie("The boys", 2019, true);
+        // Isso é um casting - Forço o Java para poder acessar os metodos desse tipo
+        ((Serie) serie).setTotalTemporada(5);
+        ((Serie) serie).setTotalEpisodio(8);
+        ((Serie) serie).setActive(false);
+
+        Titulo filme = new Filmes("Interestelar ", 2014, true);
+        ((Filmes) filme).setDuracaoEmMinutos(169);
+        ((Filmes) filme).setIndicadoOscar(true);
+        ((Filmes) filme).setDiretor("Christopher Nolan");
+
+        // Lista pela classe pai, guardando filhos diferentes - POLIMORFISMO
+        List<Titulo> catalogo = new ArrayList<>();
+        catalogo.add(serie);
+        catalogo.add(filme);
+
+        // Loop constante (Não precisa mudar)
+
+        for (Titulo titulos : catalogo) {
+            titulos.exibirTitulo(); // Cada tipo executando seu proprio @Override
+            System.out.println("---------------------");
+        }
+
+
 
 
 

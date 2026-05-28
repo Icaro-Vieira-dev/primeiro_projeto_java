@@ -7,7 +7,7 @@ public class Serie extends Titulo{
     private int minutosPorEpisodio;
 
 
-    public Serie (String nomeFilme, Integer anoDeLancamento, boolean incluiNoPlano) {
+    public Serie (String nomeFilme, int anoDeLancamento, boolean incluiNoPlano ) {
         super(nomeFilme, anoDeLancamento, incluiNoPlano);
     }
 
@@ -34,21 +34,24 @@ public class Serie extends Titulo{
     public int getTotalEpisodio() {
         return totalEpisodio;
     }
-
-
     public int getMinutosPorEpisodio() {
         return minutosPorEpisodio;
     }
+
     public int calcularTotalEpisodios() {
         return totalTemporada * totalEpisodio;
     }
+
+
     @Override
     public void exibirTitulo() {
-        super.exibirTitulo();
+        exibirDadosBase(); // Reaproveitei a genetica do pai (exibindo nome, ano de lançamento incluido ou nao no plano
+
+        // Aqui eu mexo exatamente oq esse metodo vai fazer a mais.
         System.out.println("Total de Temporada: " + this.totalTemporada);
         System.out.println("Total de episodios por temporada: " + this.totalEpisodio);
         System.out.println("Andamento: " + this.active);
-        int totalEps = this.totalTemporada * this.totalEpisodio;
         System.out.println("Total de episodios: " + calcularTotalEpisodios());
+
     }
 }
